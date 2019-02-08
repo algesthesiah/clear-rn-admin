@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
-
-import view from './view'
-
+import { View, Button, Text } from 'react-native'
 export default class ScreenHome extends Component {
   static navigationOptions = {
     title: '悟空数据系统'
@@ -12,6 +10,16 @@ export default class ScreenHome extends Component {
     this.navigation = props.navigation
   }
   render() {
-    return view(this)
+    return (
+      <View>
+        <Text style={{ fontSize: 36 }}>home110</Text>
+        <Button
+          title="goSomePage1"
+          // 路由跳转
+          onPress={() => {
+          this.navigation.navigate('ScreenHome')}}
+        />
+      </View>
+    )
   }
 }

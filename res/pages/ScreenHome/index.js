@@ -1,8 +1,15 @@
 import React, { Component } from 'react'
-import { Image } from 'react-native'
-import view from './view'
 import AntDesign from 'react-native-vector-icons/AntDesign'
-
+import { View, Text, TouchableHighlight, Image } from 'react-native'
+import {
+  Container,
+  Header,
+  Content,
+  Footer,
+  FooterTab,
+  Button,
+  Icon
+} from 'native-base'
 export default class ScreenHome extends Component {
   static navigationOptions = {
     title: '数据分析',
@@ -20,6 +27,16 @@ export default class ScreenHome extends Component {
     // 隐藏启动页
   }
   render() {
-    return view(this)
+    return (
+      <View>
+        <Text style={{ fontSize: 36 }}>home</Text>
+        <Button onPress={() => this.navigation.navigate('ScreenHome1')}>
+          <Text>goSomePage1</Text>
+        </Button>
+        <Button onPress={() => this.navigation.navigate('ScreenHome1')}>
+          <Text>login</Text>
+        </Button>
+      </View>
+    )
   }
 }

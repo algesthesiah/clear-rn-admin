@@ -2,7 +2,7 @@ import { createBottomTabNavigator } from 'react-navigation'
 import ScreenHome from '../ScreenHome'
 import ScreenTab1 from '../ScreenTab1'
 import ScreenTab2 from '../ScreenTab2'
-import ScreenTab3 from '../ScreenTab3'
+import personalCenter from '../personalCenter'
 
 const ScreenTab = createBottomTabNavigator(
   {
@@ -15,8 +15,8 @@ const ScreenTab = createBottomTabNavigator(
     ScreenTab2: {
       screen: ScreenTab2
     },
-    ScreenTab3: {
-      screen: ScreenTab3
+    personalCenter: {
+      screen: personalCenter
     }
   },
   {

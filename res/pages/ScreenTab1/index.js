@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import { Image } from 'react-native'
-import view from './view'
+import { Image, View, Button, Text,  } from 'react-native'
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 export default class ScreenTab1 extends Component {
   static navigationOptions = {
@@ -24,6 +23,10 @@ export default class ScreenTab1 extends Component {
     }
   }
   render() {
-    return view(this)
+    return (
+      <View style={{ alignItems: 'center' }}>
+        <Text style={{ fontSize: 36 }}>tab</Text>
+      </View>
+    )
   }
 }

@@ -1,40 +1,24 @@
-import Immutable from 'immutable';
-import {
-  REGISTER_USER, REGISTER_USER_SUCCESS, REGISTER_USER_FAILURE,
-  CURRENT_USER, CURRENT_USER_FAILURE, CURRENT_USER_SUCCESS
-} from '../action/users';
-
-
+import Immutable from 'immutable'
+export const USER_LOGIN = 'USER_LOGIN'
+export const user_login = data => ({
+  type: USER_LOGIN,
+  data
+})
 const initialState = Immutable.fromJS({
   newUser: null,
   error: null,
   saveSuccess: false,
   token: null,
-  currentUser: null,
-});
+  currentUser: null
+})
 
-export const users = (state = initialState, action = {}) => {
+export const users = (state = initialState, action) => {
+  console.log(action)
   switch (action.type) {
-    case REGISTER_USER:
-      return state.merge({
-        'newUser': action.data,
-        'saveSuccess': false,
-        'error': null,
-      });
-    case REGISTER_USER_SUCCESS:
-      return state.set('saveSuccess', action.data);
-    case REGISTER_USER_FAILURE:
-      return state.set('error', action.data);
-    case CURRENT_USER:
-      return state.merge({
-        'token': action.data,
-        'error': null,
-      });
-    case CURRENT_USER_SUCCESS:
-      return state.set('currentUser', action.data);
-    case CURRENT_USER_FAILURE:
-      return state.set('error', action.data);
-    default:
-      return state
+    case USER_LOGIN: {
+      return { ...state, posts: action.posts }
+      break
+    }
   }
-};
+  return state
+}

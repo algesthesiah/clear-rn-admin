@@ -1,11 +1,7 @@
 import React from 'react'
-import {
-  ActivityIndicator,
-  AsyncStorage,
-  StatusBar,
-  View,
-  StyleSheet
-} from 'react-native'
+import { ActivityIndicator, StatusBar, View, StyleSheet } from 'react-native'
+import { connect } from 'react-redux'
+import storage from '../utils/storage'
 export default class AuthLoadingScreen extends React.Component {
   constructor() {
     super()
@@ -13,11 +9,13 @@ export default class AuthLoadingScreen extends React.Component {
   }
 
   _bootstrapAsync = async () => {
-    const userToken = await AsyncStorage.getItem('userToken')
-    AsyncStorage.removeItem('userToken')
-    this.props.navigation.navigate(userToken ? 'App' : 'Auth')
+    var t = this
+    var token = await storage.get('token')
+    t.props.navigation.navigate(token ? 'App' : 'Auth')
   }
-
+  componentWillMount() {
+    // this._bootstrapAsync()
+  }
   render() {
     return (
       <View style={styles.container}>

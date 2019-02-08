@@ -5,15 +5,17 @@ import {
   createSwitchNavigator
 } from 'react-navigation'
 // 引入页面组件
+import NavigationService from './NavigationService'
 import ScreenHome from '../../pages/ScreenHome'
 import ScreenBottomTab from '../../pages/ScreenBottomTab'
 import ScreenHome1 from '../../pages/ScreenHome1'
 import ScreenTab1 from '../../pages/ScreenTab1'
 import ScreenTab2 from '../../pages/ScreenTab2'
-import ScreenTab3 from '../../pages/ScreenTab1'
+import personalCenter from '../../pages/ScreenTab1'
 import Login from '../../pages/Login'
 import LoginModal from '../../pages/Login/LoginModal'
 import AuthLoading from '../../pages/AuthLoading'
+
 // 配置路由
 const MODAL_DEFAULT_OPTIONS = {
   mode: 'modal',
@@ -31,8 +33,8 @@ const App = createStackNavigator({
   ScreenTab2: {
     screen: ScreenTab2
   },
-  ScreenTab3: {
-    screen: ScreenTab3
+  personalCenter: {
+    screen: personalCenter
   }
 })
 
@@ -48,10 +50,16 @@ const AppContainer = createAppContainer(
   createSwitchNavigator({
     AuthLoading,
     App,
-    Auth,
+    Auth
   })
 )
-export default () => <AppContainer />
+export default () => (
+  <AppContainer
+    ref={navigatorRef => {
+      NavigationService.setTopLevelNavigator(navigatorRef)
+    }}
+  />
+)
 
 // @connect(({ router }) => ({ router }))
 // export default class Router extends Component {
